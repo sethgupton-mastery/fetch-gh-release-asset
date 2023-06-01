@@ -105,6 +105,7 @@ else
   fi
 fi
 
-echo "::set-output name=version::$TAG_VERSION"
-echo "::set-output name=name::$RELEASE_NAME"
-echo "::set-output name=body::$RELEASE_BODY"
+echo "version=$TAG_VERSION" >> $GITHUB_OUTPUT
+echo "name=$RELEASE_NAME" >> $GITHUB_OUTPUT
+RELEASE_BODY=$(echo $RELEASE_BODY | tr '\n' ' ')
+echo "body=$RELEASE_BODY" >> $GITHUB_OUTPUT
