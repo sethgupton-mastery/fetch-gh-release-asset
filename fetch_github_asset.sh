@@ -105,6 +105,7 @@ else
   fi
 fi
 
-echo "version=$TAG_VERSION" >> "$GITHUB_ENV"
-echo "name=$RELEASE_NAME" >> "$GITHUB_ENV"
-echo "body=$RELEASE_BODY" >> "$GITHUB_ENV"
+echo "version=$TAG_VERSION" >> $GITHUB_OUTPUT
+echo "name=$RELEASE_NAME" >> $GITHUB_OUTPUT
+RELEASE_BODY=$(echo $RELEASE_BODY | tr '\n' ' ')
+echo "body=$RELEASE_BODY" >> $GITHUB_OUTPUT
